@@ -158,3 +158,12 @@ require get_template_directory() . '/inc/template-functions.php';
 
 // Custom template tags for the theme.
 require get_template_directory() . '/inc/template-tags.php';
+
+wp_enqueue_style( 'style', get_stylesheet_uri() );
+wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/fonts/shabnam/font-face.css', false, '1.1', 'all');
+wp_enqueue_script( 'tailwindcss', 'https://cdn.tailwindcss.com' );
+
+function wpb_header_new_menu() {
+	register_nav_menu('my-header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'wpb_header_new_menu' );
